@@ -1,0 +1,13 @@
+# Here are variables related to the Tomcat installation
+
+hello_string: "This variable was set in group_vars/tomcat-servers"
+
+http_port: 8080
+https_port: 8443
+
+# This will configure a default manager-gui user:
+
+admin_username: admin
+admin_password: adminsecret
+
+

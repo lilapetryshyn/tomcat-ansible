@@ -1,0 +1,40 @@
+---
+- name: Download Java JDK
+  get_url:
+    url: http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.rpm
+    dest: /tmp/jdk-8u181-linux-x64.rpm
+    headers: 'Cookie: oraclelicense=accept-securebackup-cookie'
+
+- name: Install Java JDK rpm from a local file
+  yum:
+    name: /tmp/jdk-8u181-linux-x64.rpm
+    state: present
+  become: yes
+
+- name: Download Tomcat
+  get_url: url=http://apache.ip-connect.vn.ua/tomcat/tomcat-9/v9.0.12/bin/apache-tomcat-9.0.12.tar.gz dest=/opt/
+
+- name: Create dir
+  file: path=/opt/tomcat/ owner=root group=root state=directory
+
+- name: Extract archive
+  unarchive:
+    src: /opt/apache-tomcat-9.0.12.tar.gz
+    dest: /opt/tomcat/
+    copy: no
+    extra_opts: [--strip-components=1]
+
+- name: Configure Tomcat users
+  template: src=tomcat-users.xml dest=/opt/tomcat/conf/
+
+- name: Create Tomcat unit file
+  template: src=tomcat.service.j2 dest=/etc/systemd/system/tomcat.service
+
+- name: daemon-reload
+  systemd: daemon_reload=yes
+
+- name: Start Tomcat
+  systemd: name=tomcat state=started enabled=true
+
+- name: wait for tomcat to start
+  wait_for: port={{http_port}}

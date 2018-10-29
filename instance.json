@@ -1,0 +1,87 @@
+{
+    "Groups": [],
+    "ReservationId": "r-053e9c7f9cf9405b8",
+    "OwnerId": "148001421579",
+    "Instances": [
+        {
+            "SubnetId": "subnet-0f4d438d9a9ec9bde",
+            "ImageId": "ami-6cd6f714",
+            "SourceDestCheck": true,
+            "RootDeviceName": "/dev/xvda",
+            "BlockDeviceMappings": [],
+            "VirtualizationType": "hvm",
+            "AmiLaunchIndex": 0,
+            "LaunchTime": "2018-10-08T20:55:50.000Z",
+            "Placement": {
+                "AvailabilityZone": "us-west-2a",
+                "Tenancy": "default",
+                "GroupName": ""
+            },
+            "VpcId": "vpc-01bb513d577bebe72",
+            "Monitoring": {
+                "State": "disabled"
+            },
+            "SecurityGroups": [
+                {
+                    "GroupId": "sg-0bed7780f517df046",
+                    "GroupName": "TomcatSG"
+                }
+            ],
+            "Architecture": "x86_64",
+            "StateTransitionReason": "",
+            "EbsOptimized": false,
+            "InstanceId": "i-03914dbd5443f0c2c",
+            "KeyName": "ec2",
+            "StateReason": {
+                "Code": "pending",
+                "Message": "pending"
+            },
+            "NetworkInterfaces": [
+                {
+                    "Groups": [
+                        {
+                            "GroupId": "sg-0bed7780f517df046",
+                            "GroupName": "TomcatSG"
+                        }
+                    ],
+                    "Description": "",
+                    "SubnetId": "subnet-0f4d438d9a9ec9bde",
+                    "Attachment": {
+                        "AttachmentId": "eni-attach-03bc8f2b2b72e7c5f",
+                        "DeviceIndex": 0,
+                        "Status": "attaching",
+                        "DeleteOnTermination": true,
+                        "AttachTime": "2018-10-08T20:55:50.000Z"
+                    },
+                    "SourceDestCheck": true,
+                    "MacAddress": "02:07:1f:60:0a:82",
+                    "OwnerId": "148001421579",
+                    "PrivateIpAddress": "172.31.23.250",
+                    "PrivateDnsName": "ip-172-31-23-250.us-west-2.compute.internal",
+                    "VpcId": "vpc-01bb513d577bebe72",
+                    "PrivateIpAddresses": [
+                        {
+                            "PrivateDnsName": "ip-172-31-23-250.us-west-2.compute.internal",
+                            "Primary": true,
+                            "PrivateIpAddress": "172.31.23.250"
+                        }
+                    ],
+                    "Status": "in-use",
+                    "NetworkInterfaceId": "eni-0436cbfd060dbe9a0"
+                }
+            ],
+            "Hypervisor": "xen",
+            "PrivateIpAddress": "172.31.23.250",
+            "PrivateDnsName": "ip-172-31-23-250.us-west-2.compute.internal",
+            "PublicDnsName": "",
+            "ProductCodes": [],
+            "State": {
+                "Name": "pending",
+                "Code": 0
+            },
+            "RootDeviceType": "ebs",
+            "InstanceType": "t2.micro",
+            "ClientToken": ""
+        }
+    ]
+}
