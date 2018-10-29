@@ -1,0 +1,5 @@
+secret*
+*.pub
+ec2*
+*.retry
+*pem
