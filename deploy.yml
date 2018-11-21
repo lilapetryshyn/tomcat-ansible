@@ -1,0 +1,13 @@
+---
+
+- hosts: tomcat-servers
+  remote_user: root
+  become: yes
+  become_method: sudo
+
+  tasks:
+    - name: Deploy war into Tomcat
+      copy:
+        src: /var/lib/jenkins/workspace/ansible-helloworld/target/helloworld.war
+        dest: /opt/tomcat/webapps/
+        owner: root
