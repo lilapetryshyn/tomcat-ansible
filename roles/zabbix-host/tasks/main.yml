@@ -12,6 +12,10 @@
   package: name=zabbix-agent state=present
   become: yes
 
+- name: Install zabbix-java-gateway
+  package: name=zabbix-java-gateway state=present
+  become: yes
+
 - name: Start agent
   systemd: name=zabbix-agent state=started
 
