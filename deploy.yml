@@ -11,3 +11,5 @@
         src: /var/lib/jenkins/workspace/ansible-helloworld/target/helloworld.war
         dest: /opt/tomcat/webapps/
         owner: root
+  roles:
+    - zabbix-host
