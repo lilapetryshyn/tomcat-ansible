@@ -1,0 +1,7 @@
+---
+# handlers file for zabbix-host
+
+- name: enable zabbix-agent
+  systemd:
+    name: zabbix-agent
+    enabled: true

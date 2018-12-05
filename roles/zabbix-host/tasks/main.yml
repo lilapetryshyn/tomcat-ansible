@@ -1,0 +1,44 @@
+---
+# tasks file for zabbix-host
+
+- name: Install zabbix agent
+  package: name=zabbix-agent state=present
+  become: yes
+
+- name: Copy zabbix conf file
+  template: src=zabbix-agent.conf.j2 dest=/etc/zabbix/zabbix_agentd.conf
+
+- name: Start agent
+  systemd: name=zabbix-agent state=started
+
+- name: Create a new zabbix host
+  local_action:
+    module: zabbix_host
+    server_url: {{ zabbix_server }}
+    login_user: Admin
+    login_password: zabbix
+    host_name: "{{ lookup('env','INSTANCE_IP') }}"
+    visible_name: InstanceHelloWorld
+    description: Tomcat
+    host_groups:
+      - Java
+    link_templates:
+      - JMX Template
+    status: enabled
+    state: present
+    inventory_mode: disabled
+    ipmi_authtype: -1
+    ipmi_privilege: 2
+    interfaces:
+      - type: 1
+        main: 1
+        useip: 1
+        ip: "{{ lookup('env','INSTANCE_IP') }}"
+        dns: ""
+        port: 10050
+      - type: 4
+        main: 1
+        useip: 1
+        ip: "{{ lookup('env','INSTANCE_IP') }}"
+        dns: ""
+        port: 12345

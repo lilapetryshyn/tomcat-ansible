@@ -10,4 +10,6 @@ https_port: 8443
 admin_username: admin
 admin_password: adminsecret
 
-
+zabbix_server: "http://192.168.10.65/zabbix/"
+zabbix_server_ip: 192.168.10.65
+host_ip: "{{ lookup('env','INSTANCE_IP') }}"
