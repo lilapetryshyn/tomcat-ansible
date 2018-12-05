@@ -21,7 +21,7 @@
     server_url: "{{ zabbix_server }}"
     login_user: Admin
     login_password: zabbix
-    host_name: "{{ lookup('env','INSTANCE_IP') }}"
+    host_name: "{{ ansible_eth0.ipv4.address }}"
     visible_name: InstanceHelloWorld
     description: Tomcat
     host_groups:
@@ -37,12 +37,12 @@
       - type: 1
         main: 1
         useip: 1
-        ip: "{{ lookup('env','INSTANCE_IP') }}"
+        ip: "{{ ansible_eth0.ipv4.address }}"
         dns: ""
         port: 10050
       - type: 4
         main: 1
         useip: 1
-        ip: "{{ lookup('env','INSTANCE_IP') }}"
+        ip: "{{ ansible_eth0.ipv4.address }}"
         dns: ""
         port: 12345
