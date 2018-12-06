@@ -25,7 +25,7 @@
     server_url: "{{ zabbix_server }}"
     login_user: Admin
     login_password: zabbix
-    host_name: "{{ ansible_ssh_host }}"
+    host_name: "{{ lookup('env','INSTANCE_IP') }}"
     visible_name: InstanceHelloWorld
     description: Tomcat
     host_groups:
@@ -41,12 +41,12 @@
       - type: 1
         main: 1
         useip: 1
-        ip: "{{ ansible_ssh_host }}"
+        ip: "{{ lookup('env','INSTANCE_IP') }}"
         dns: ""
         port: 10050
       - type: 4
         main: 1
         useip: 1
-        ip: "{{ ansible_ssh_host }}"
+        ip: "{{ lookup('env','INSTANCE_IP') }}"
         dns: ""
         port: 12345
