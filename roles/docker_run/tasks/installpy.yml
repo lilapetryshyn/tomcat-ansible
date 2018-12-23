@@ -1,11 +1,10 @@
 ---
 
-- name: Install python setup tools
-  yum: name=python-setuptools
+- name: install pip
+  package:
+    name: python-pip
+    state: present
 
-- name: Install Pypi
-  easy_install: name=pip
- 
 - name: Install docker-py
   pip: name={{ item }}
   tags: docker
