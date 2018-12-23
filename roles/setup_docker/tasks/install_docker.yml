@@ -7,7 +7,7 @@
 
 - name: Install Docker
   package:
-    name: docker-ce
+    name: docker
     state: present
   become: yes
 
@@ -32,6 +32,5 @@
     owner: root
     group: root
     mode: 0644
-  notify: 
+  notify:
     - reload docker
-
