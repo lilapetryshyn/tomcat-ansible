@@ -1,0 +1,37 @@
+---
+- name: Add Docker repo
+  get_url:
+    url: https://download.docker.com/linux/centos/docker-ce.repo
+    dest: /etc/yum.repos.d/docer-ce.repo
+  become: yes
+
+- name: Install Docker
+  package:
+    name: docker-ce
+    state: present
+  become: yes
+
+- name: Start Docker service
+  service:
+    name: docker
+    state: started
+    enabled: yes
+  become: yes
+
+- name: add users to the docker group
+  user:
+    name: "{{item}}"
+    groups: docker
+    append: yes
+  with_items: "{{docker_centos_users}}"
+
+- name: template docker service
+  template:
+    src: docker.service.j2
+    dest: /usr/lib/systemd/system/docker.service
+    owner: root
+    group: root
+    mode: 0644
+  notify: 
+    - reload docker
+

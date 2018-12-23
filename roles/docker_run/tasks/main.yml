@@ -1,0 +1,8 @@
+---
+# tasks file for docker_run
+- include: installpy.yml
+  tags: "install"
+- include: runcontainer.yml
+  tags: "container"
+- include: docker_network.yml
+  tags: "network"

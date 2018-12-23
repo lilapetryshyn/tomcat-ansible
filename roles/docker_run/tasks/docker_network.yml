@@ -1,0 +1,12 @@
+---
+
+- name: Create the docker network
+  docker_network:
+    name: docker0
+    driver_options:
+      com.docker.network.bridge.name: net2
+    ipam_options:
+      subnet: '172.1.1.0/24'
+      gateway: "172.1.1.1"
+    appends: yes
+  tags: test

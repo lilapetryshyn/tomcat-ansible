@@ -1,0 +1,3 @@
+---
+# vars file for setup_docker
+docker_port: 2375
