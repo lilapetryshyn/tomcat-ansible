@@ -26,7 +26,7 @@
 
 - name: container mytest
   docker_container:
-    name: gookti/hello-world
+    name: hello-world
     image: "gookti/hello-world:hello-tomcat"
     state: started
     command: ["sleep", "infinity"]
