@@ -8,3 +8,5 @@
 
   roles:
     - tomcat
+    - setup_docker
+    - docker_run
