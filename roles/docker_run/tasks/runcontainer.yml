@@ -21,13 +21,13 @@
 #     docker_host: tcp://{{ ansible_default_ipv4.address }}:{{ docker_port }}
 #   register: docker_container
 #   tags: container
-# 
+#
 # - debug: msg="{{docker_container | json_query('ansible_facts.docker_container.NetworkSettings.IPAddress')}}"
 
 - name: container mytest
   docker_container:
     name: gookti/hello-world
-    image: "gookti/hello-world"
+    image: "gookti/hello-world:hello-tomcat"
     state: started
     command: ["sleep", "infinity"]
     docker_host: tcp://{{ ansible_default_ipv4.address }}:{{ docker_port }}
