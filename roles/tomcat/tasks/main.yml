@@ -11,14 +11,14 @@
   become: yes
 
 - name: Download Tomcat
-  get_url: url=http://apache.ip-connect.vn.ua/tomcat/tomcat-9/v9.0.12/bin/apache-tomcat-9.0.12.tar.gz dest=/opt/
+  get_url: url=http://apache.ip-connect.vn.ua/tomcat/tomcat-9/v9.0.14/bin/apache-tomcat-9.0.14.tar.gz dest=/opt/
 
 - name: Create dir
   file: path=/opt/tomcat/ owner=root group=root state=directory
 
 - name: Extract archive
   unarchive:
-    src: /opt/apache-tomcat-9.0.12.tar.gz
+    src: /opt/apache-tomcat-9.0.14.tar.gz
     dest: /opt/tomcat/
     copy: no
     extra_opts: [--strip-components=1]
