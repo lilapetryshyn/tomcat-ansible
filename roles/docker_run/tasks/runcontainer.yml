@@ -31,6 +31,9 @@
     state: started
     command: ["sleep", "infinity"]
     docker_host: tcp://{{ ansible_default_ipv4.address }}:{{ docker_port }}
+    tls_hostname: "{{ ansible_default_ipv4.address }}"
+    tls_verify: yes
+
   register: docker_container
   tags: container
 
