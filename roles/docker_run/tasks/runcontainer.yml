@@ -29,7 +29,7 @@
     name: hello-world
     image: "gookti/hello-world:hello-tomcat"
     state: started
-    command: ["sleep", "infinity"]
+    # command: ["sleep", "infinity"]
     # docker_host: tcp://{{ ansible_default_ipv4.address }}:{{ docker_port }}
     # tls_hostname: "{{ ansible_default_ipv4.address }}"
     # tls_verify: yes
