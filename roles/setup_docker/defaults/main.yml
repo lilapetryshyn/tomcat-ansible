@@ -1,7 +1,7 @@
 ---
 
 gather_facts: No
-docker_centos_users: ["vagrant"]
+docker_centos_users: ["vagrant", "jenkins", "ec2-user"]
 docker_centos_version: "latest"
 docker_centos_started: no
 docker_centos_enabled: no
