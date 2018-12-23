@@ -30,9 +30,10 @@
     image: "gookti/hello-world:hello-tomcat"
     state: started
     command: ["sleep", "infinity"]
-    docker_host: tcp://{{ ansible_default_ipv4.address }}:{{ docker_port }}
-    tls_hostname: "{{ ansible_default_ipv4.address }}"
-    tls_verify: yes
+    # docker_host: tcp://{{ ansible_default_ipv4.address }}:{{ docker_port }}
+    # tls_hostname: "{{ ansible_default_ipv4.address }}"
+    # tls_verify: yes
+    published_ports: 0.0.0.0:9191:8080
 
   register: docker_container
   tags: container
