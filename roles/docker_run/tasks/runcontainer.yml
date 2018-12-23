@@ -1,38 +1,10 @@
 ---
 
-# - name: container ubuntu14
-#   docker_container:
-#     name: ubuntu14
-#     image: "ubuntu:14.04"
-#     state: started
-#     command: ["sleep", "infinity"]
-#     docker_host: tcp://{{ ansible_default_ipv4.address }}:{{ docker_port }}
-#   register: docker_container
-#   tags: container
-#
-# - debug: msg="{{docker_container | json_query('ansible_facts.docker_container.NetworkSettings.IPAddress')}}"
-#
-# - name: container ubuntu16
-#   docker_container:
-#     name: ubuntu16
-#     image: "ubuntu:16.04"
-#     state: started
-#     command: ["sleep", "infinity"]
-#     docker_host: tcp://{{ ansible_default_ipv4.address }}:{{ docker_port }}
-#   register: docker_container
-#   tags: container
-#
-# - debug: msg="{{docker_container | json_query('ansible_facts.docker_container.NetworkSettings.IPAddress')}}"
-
 - name: container mytest
   docker_container:
     name: hello-world
     image: "gookti/hello-world:hello-tomcat"
     state: started
-    # command: ["sleep", "infinity"]
-    # docker_host: tcp://{{ ansible_default_ipv4.address }}:{{ docker_port }}
-    # tls_hostname: "{{ ansible_default_ipv4.address }}"
-    # tls_verify: yes
     published_ports: 0.0.0.0:9191:8080
 
   register: docker_container
